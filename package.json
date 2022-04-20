@@ -2,7 +2,7 @@
   "name": "movies-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lweichern.github.io/MovieNow",
+  "homepage": "https://lweichern.github.io/Movie-Now-TS/",
   "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.9.0",
@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-undraw-cli && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
