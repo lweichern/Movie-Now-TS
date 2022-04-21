@@ -17,7 +17,9 @@ export const StyledNavContent = styled.nav`
   justify-content: space-between;
 `;
 
-export const StyledLogo = styled.h2``;
+export const StyledLogo = styled.h2`
+  color: #fff;
+`;
 
 export const StyledLinks = styled.ul`
   display: flex;

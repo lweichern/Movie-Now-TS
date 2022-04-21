@@ -34,7 +34,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Movie Type
 import { MovieState, GenreState } from "../../../Pages/Home";
-import { StringLiteralLike } from "typescript";
 
 type Props = {
   headerMovie: MovieState;

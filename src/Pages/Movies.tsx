@@ -122,7 +122,13 @@ const Movies = () => {
               {genres.length !== 0 &&
                 genres.map((genre) => {
                   if (genre.id !== 99) {
-                    return <GenreCards id={genre.id} name={genre.name} />;
+                    return (
+                      <GenreCards
+                        key={genre.id}
+                        id={genre.id}
+                        name={genre.name}
+                      />
+                    );
                   }
                 })}
             </Flex>

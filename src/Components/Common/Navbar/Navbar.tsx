@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   StyledNavHeader,
   StyledNavContent,
@@ -12,7 +12,7 @@ import {
 } from "./Navbar.styled";
 import { Container } from "../../../Styles/CommonStyles/Container";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { FaUserCircle } from "react-icons/fa";
 
@@ -23,13 +23,11 @@ export type UserState = {
   favoriteMovies: number[];
 };
 
-type IProps = {
-  currentPage: string;
-  handleClick: React.MouseEventHandler<HTMLLIElement>;
-};
-
-const Navbar: React.FC<IProps> = ({ currentPage, handleClick }) => {
+const Navbar: React.FC = () => {
   const user = JSON.parse(window.localStorage.getItem("user")!);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   // const dispatch = useDispatch();
   const handleSignOut = () => {
@@ -54,14 +52,16 @@ const Navbar: React.FC<IProps> = ({ currentPage, handleClick }) => {
     <StyledNavHeader>
       <Container>
         <StyledNavContent>
-          <StyledLogo>MovieNow</StyledLogo>
+          <Link to={"/"}>
+            <StyledLogo>MovieNow</StyledLogo>
+          </Link>
+
           <StyledLinks>
             <Link to="/">
               <StyledLinkItems
-                onClick={handleClick}
                 style={{
                   borderBottom: `${
-                    currentPage === "Home"
+                    currentPath === "/"
                       ? "2px solid #fff"
                       : "2px solid transparent"
                   }`,
@@ -73,10 +73,9 @@ const Navbar: React.FC<IProps> = ({ currentPage, handleClick }) => {
 
             <Link to="/movies">
               <StyledLinkItems
-                onClick={handleClick}
                 style={{
                   borderBottom: `${
-                    currentPage === "Movies"
+                    currentPath.includes("movies")
                       ? "2px solid #fff"
                       : "2px solid transparent"
                   }`,

@@ -37,17 +37,11 @@ const theme = {
 export type ThemeType = typeof theme;
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Home");
-
-  const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
-    setCurrentPage(event.currentTarget.textContent!);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <HashRouter>
         <GlobalStyles />
-        <Navbar currentPage={currentPage} handleClick={handleClick} />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sign-in" element={<SignIn />} />

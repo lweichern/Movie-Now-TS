@@ -35,6 +35,7 @@ const MovieCards: React.FC<IProps> = ({ movie }) => {
       .catch((err) => console.log(err));
   };
 
+  // Check if user is logged in
   const currentUser = JSON.parse(window.localStorage.getItem("user")!);
 
   const cardVariants = {
@@ -123,7 +124,7 @@ const MovieCards: React.FC<IProps> = ({ movie }) => {
           <MovieTitle>{movie.title}</MovieTitle>
 
           {currentUser == null ? (
-            <AiOutlineHeart className="heart-icon" onClick={toggleFavorite} />
+            ""
           ) : currentUser.favoriteMovies.includes(movie.id) ? (
             <AiFillHeart className="heart-icon" onClick={toggleFavorite} />
           ) : (
