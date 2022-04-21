@@ -3,7 +3,12 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./Styles/GlobalStyles";
 
 // Routes
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  HashRouter,
+} from "react-router-dom";
 
 // Components
 import Navbar from "./Components/Common/Navbar/Navbar";
@@ -40,7 +45,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
+      <HashRouter>
         <GlobalStyles />
         <Navbar currentPage={currentPage} handleClick={handleClick} />
         <Routes>
@@ -56,7 +61,7 @@ function App() {
           <Route path="/actor/:actorId" element={<Actor />} />
         </Routes>
         <Footer />
-      </Router>
+      </HashRouter>
     </ThemeProvider>
   );
 }
