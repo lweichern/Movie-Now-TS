@@ -9,12 +9,17 @@ import {
   SignOutButton,
   StyledSignOut,
   Username,
+  LinkTitles,
+  LinkBorders,
 } from "./Navbar.styled";
 import { Container } from "../../../Styles/CommonStyles/Container";
 
 import { Link, useLocation } from "react-router-dom";
 
 import { FaUserCircle } from "react-icons/fa";
+
+// Framer motion
+import { motion, AnimateSharedLayout } from "framer-motion";
 
 export type UserState = {
   email: string;
@@ -48,6 +53,14 @@ const Navbar: React.FC = () => {
 
     window.location.reload();
   };
+
+  // Framer motion transitions
+  const spring = {
+    type: "spring",
+    stiffness: 500,
+    damping: 30,
+  };
+
   return (
     <StyledNavHeader>
       <Container>
@@ -58,36 +71,29 @@ const Navbar: React.FC = () => {
 
           <StyledLinks>
             <Link to="/">
-              <StyledLinkItems
-                style={{
-                  borderBottom: `${
-                    currentPath === "/"
-                      ? "2px solid #fff"
-                      : "2px solid transparent"
-                  }`,
-                }}
-              >
-                Home
+              <StyledLinkItems>
+                <LinkTitles>Home</LinkTitles>
+                {currentPath === "/" && (
+                  <LinkBorders layoutId="linkBorder" transition={spring} />
+                )}
               </StyledLinkItems>
             </Link>
 
             <Link to="/movies">
-              <StyledLinkItems
-                style={{
-                  borderBottom: `${
-                    currentPath.includes("movies")
-                      ? "2px solid #fff"
-                      : "2px solid transparent"
-                  }`,
-                }}
-              >
-                Movies
+              <StyledLinkItems>
+                <LinkTitles>Movies</LinkTitles>
+                {currentPath.includes("movies") && (
+                  <LinkBorders layoutId="linkBorder" transition={spring} />
+                )}
               </StyledLinkItems>
             </Link>
           </StyledLinks>
           {JSON.parse(window.localStorage.getItem("user")!) === null ? (
             <Link to={"/sign-in"}>
-              <StyledSignIn>Sign In</StyledSignIn>
+              <LinkTitles>Sign In</LinkTitles>
+              {currentPath.includes("sign-in") && (
+                <LinkBorders layoutId="linkBorder" transition={spring} />
+              )}
             </Link>
           ) : (
             <StyledSignOut>

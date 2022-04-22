@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const StyledNavHeader = styled.nav`
   width: 100%;
@@ -37,6 +38,16 @@ export const StyledLinks = styled.ul`
   // }
 `;
 
+export const LinkTitles = styled.div`
+  color: #fff;
+`;
+
+export const LinkBorders = styled(motion.div)`
+  height: 2px;
+  background: #fff;
+  width: 100%;
+`;
+
 export const StyledLinkItems = styled.li`
   list-style: none;
   margin: 0 0.5rem;
@@ -47,13 +58,12 @@ export const StyledLinkItems = styled.li`
 
   &:hover {
     color: ${({ theme }) => theme.colors.content1};
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8);
   }
 `;
 
 export const StyledSignIn = styled.h4`
   cursor: pointer;
-  padding: 0.5rem;
   transition: 0.2s;
   border-radius: 0.2rem;
   color: #fff;

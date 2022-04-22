@@ -15,6 +15,9 @@ import { DefaultTheme, useTheme } from "styled-components";
 import LoadMoreButton from "../Components/MoviesPage/LoadMoreButton/LoadMoreButton";
 import Spinner from "../Components/Common/Spinner/Spinner";
 
+// Framer motion
+import { motion } from "framer-motion";
+
 const Movies = () => {
   const [headerMovie, setHeaderMovie] = useState<MovieState>();
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -90,7 +93,17 @@ const Movies = () => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{
+        opacity: 0,
+        width: 0,
+      }}
+      animate={{
+        opacity: 1,
+        width: "100%",
+      }}
+      exit={{ opacity: 0, x: window.innerWidth }}
+    >
       {headerMovie !== undefined && (
         <>
           <Header headerMovie={headerMovie!} />
@@ -135,7 +148,7 @@ const Movies = () => {
           </Container>
         </>
       )}
-    </>
+    </motion.div>
   );
 };
 

@@ -23,6 +23,9 @@ import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { UserState } from "../Common/Navbar/Navbar";
 // import { useDispatch } from "react-redux";
 
+// Framer motion
+import { motion } from "framer-motion";
+
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -70,17 +73,18 @@ const SignIn = () => {
   };
 
   return (
-    <SignInContainer>
+    <SignInContainer
+      initial={{
+        x: "-100%",
+      }}
+      animate={{
+        x: 0,
+      }}
+      exit={{ x: "-100%" }}
+    >
       <AnimatePresence>
-        <SignInContent
-          layoutId="division"
-          initial={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
+        <SignInContent layoutId="division" transition={{ duration: 0.6 }}>
           <LeftContent>
-            {/* <Undraw name="sign-in" style={{ height: "80vh" }} /> */}
             <img
               src={SignInImage}
               style={{ height: "75vh", width: "100%" }}

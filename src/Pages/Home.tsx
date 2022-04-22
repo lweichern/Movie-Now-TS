@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "styled-components";
 import API_Details from "../API_Details";
+
+// Components
 import Carousel from "../Components/HomePage/Carousel/Carousel";
 import Favorites from "../Components/HomePage/Favorites/Favorites";
 import Hero from "../Components/HomePage/Hero/Hero";
-import { CastState } from "../Components/MoviesPage/Header/Header";
 import { Container } from "../Styles/CommonStyles/Container";
+
+// State for TS datatypes
+import { CastState } from "../Components/MoviesPage/Header/Header";
+
+// Framer motion
+import { motion } from "framer-motion";
 
 export type MovieState = {
   adult: boolean;
@@ -64,7 +71,17 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{
+        opacity: 0,
+        width: 0,
+      }}
+      animate={{
+        opacity: 1,
+        width: "100%",
+      }}
+      exit={{ opacity: 0, x: window.innerWidth }}
+    >
       {movies.length !== 0 && (
         <Hero
           image1={`${API_Details.BASE_IMAGE_URL}${API_Details.BACKDROP_SIZE}${movies[0].backdrop_path}`}
@@ -94,7 +111,7 @@ const Home = () => {
           <h3>Please Login to add favorite movies.</h3>
         )}
       </Container>
-    </div>
+    </motion.div>
   );
 };
 

@@ -17,6 +17,9 @@ import { TextField, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { UserState } from "../Common/Navbar/Navbar";
 
+// Framer motion
+import { AnimatePresence } from "framer-motion";
+
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -75,84 +78,87 @@ export default function SignUp() {
   };
 
   return (
-    <SignUpContainer>
-      <SignUpContent
-        layoutId="division"
-        initial={{ opacity: 0 }}
-        exit={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <LeftContent>
-          {/* <Undraw name="sign-in" style={{ height: "80vh" }} /> */}
-          <img
-            src={SignUpImage}
-            style={{ height: "70vh", width: "100%" }}
-            alt="Sign Up Image"
-          />
-        </LeftContent>
-        <RightContent>
-          <h1 style={{ color: (theme as any).colors.content1 }}>Sign Up</h1>
-          <form onSubmit={handleSignUp}>
-            <TextField
-              id="outlined-basic"
-              label="Email"
-              variant="outlined"
-              className="input"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+    <SignUpContainer
+      initial={{
+        x: "100%",
+      }}
+      animate={{
+        x: 0,
+      }}
+      exit={{ x: "100%" }}
+    >
+      <AnimatePresence>
+        <SignUpContent layoutId="division" transition={{ duration: 0.6 }}>
+          <LeftContent>
+            <img
+              src={SignUpImage}
+              style={{ height: "70vh", width: "100%" }}
+              alt="Sign Up Image"
             />
+          </LeftContent>
+          <RightContent>
+            <h1 style={{ color: (theme as any).colors.content1 }}>Sign Up</h1>
+            <form onSubmit={handleSignUp}>
+              <TextField
+                id="outlined-basic"
+                label="Email"
+                variant="outlined"
+                className="input"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-            <TextField
-              id="outlined-basic"
-              label="Username"
-              variant="outlined"
-              className="input"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+              <TextField
+                id="outlined-basic"
+                label="Username"
+                variant="outlined"
+                className="input"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
 
-            <TextField
-              id="outlined-basic"
-              label="Password"
-              variant="outlined"
-              className="input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+              <TextField
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                className="input"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
 
-            <TextField
-              id="outlined-basic"
-              label="Confirm Password"
-              variant="outlined"
-              className="input"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <SignUpText>
-              Already have an account? Sign In{" "}
-              <Link to={"/sign-in"} style={{ textDecoration: "underline" }}>
-                Here
-              </Link>
-            </SignUpText>
-            <Button
-              id="outlined-basic"
-              variant="outlined"
-              style={{
-                color: (theme as any).colors.content1,
-                border: `1px solid ${(theme as any).colors.content1}`,
-              }}
-              type="submit"
-            >
-              Sign Up
-            </Button>
-          </form>
-        </RightContent>
-      </SignUpContent>
+              <TextField
+                id="outlined-basic"
+                label="Confirm Password"
+                variant="outlined"
+                className="input"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <SignUpText>
+                Already have an account? Sign In{" "}
+                <Link to={"/sign-in"} style={{ textDecoration: "underline" }}>
+                  Here
+                </Link>
+              </SignUpText>
+              <Button
+                id="outlined-basic"
+                variant="outlined"
+                style={{
+                  color: (theme as any).colors.content1,
+                  border: `1px solid ${(theme as any).colors.content1}`,
+                }}
+                type="submit"
+              >
+                Sign Up
+              </Button>
+            </form>
+          </RightContent>
+        </SignUpContent>
+      </AnimatePresence>
     </SignUpContainer>
   );
 }
