@@ -28,11 +28,12 @@ const Hero: React.FC<Props> = (props) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h1>Hero title</h1>
+            <h1>Explore the Magic of Movies Now</h1>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s.
+              Explore and discover your favorite films effortlessly with our
+              user-friendly platform. From hidden gems to blockbuster hits,
+              we've curated a diverse selection to cater to every movie
+              enthusiast.
             </p>
           </LeftSection>
           <RightSection>
