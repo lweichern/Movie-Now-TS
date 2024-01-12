@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Movie-Now-TS/static/css/main.57165b90.css",
-    "main.js": "/Movie-Now-TS/static/js/main.583d5651.js",
+    "main.js": "/Movie-Now-TS/static/js/main.6795eaa6.js",
     "static/js/787.2b35ebb1.chunk.js": "/Movie-Now-TS/static/js/787.2b35ebb1.chunk.js",
     "static/media/hero-image.jpg": "/Movie-Now-TS/static/media/hero-image.f9a26a2d75e5b46a813e.jpg",
     "static/media/no_image.jpg": "/Movie-Now-TS/static/media/no_image.22d2aa4d1af1a092666a.jpg",
@@ -9,11 +9,11 @@
     "static/media/sign-in.svg": "/Movie-Now-TS/static/media/sign-in.c052777033ac1d587b24f7d62fa24504.svg",
     "index.html": "/Movie-Now-TS/index.html",
     "main.57165b90.css.map": "/Movie-Now-TS/static/css/main.57165b90.css.map",
-    "main.583d5651.js.map": "/Movie-Now-TS/static/js/main.583d5651.js.map",
+    "main.6795eaa6.js.map": "/Movie-Now-TS/static/js/main.6795eaa6.js.map",
     "787.2b35ebb1.chunk.js.map": "/Movie-Now-TS/static/js/787.2b35ebb1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.57165b90.css",
-    "static/js/main.583d5651.js"
+    "static/js/main.6795eaa6.js"
   ]
 }
